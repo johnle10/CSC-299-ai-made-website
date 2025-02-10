@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Blog - My Personal Profile{% endblock %}
+
+{% block content %}
+<h1>My Blog</h1>
+{% for post in posts %}
+    <article class="mb-4">
+        <h2>{{ post.title }}</h2>
+        <small>Posted on {{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+        <p>{{ post.content[:200] }}{% if post.content|length > 200 %}...{% endif %}</p>
+    </article>
+{% endfor %}
+{% endblock %}
+
